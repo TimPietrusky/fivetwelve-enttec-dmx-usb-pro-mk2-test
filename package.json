@@ -1,0 +1,24 @@
+{
+  "name": "fivetwelve-enttec-dmx-usb-pro-mk2-test",
+  "version": "1.0.0",
+  "description": "Testing the Enttec DMX USB Pro Mk2 with fivetwelve by Martin Schuhfuss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimPietrusky/fivetwelve-enttec-dmx-usb-pro-mk2-test.git"
+  },
+  "dependencies": {
+    "dmx": "0.0.4",
+    "fivetwelve": "^0.9.3"
+  },
+  "author": "Tim Pietrusky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TimPietrusky/fivetwelve-enttec-dmx-usb-pro-mk2-test/issues"
+  },
+  "homepage": "https://github.com/TimPietrusky/fivetwelve-enttec-dmx-usb-pro-mk2-test#readme"
+}
