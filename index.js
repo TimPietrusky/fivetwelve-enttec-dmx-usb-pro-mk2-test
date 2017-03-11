@@ -5,12 +5,12 @@ let fivetwelveNodeDmxDriver = require('./NodeDmxDriver');
 
 const nodeDmx = new DMX();
 nodeDmx.addUniverse('universe1', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-EN193448');
-//nodeDmx.addUniverse('universe2', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-EN193448');
+nodeDmx.addUniverse('universe2', 'enttec-usb-dmx-pro', '/dev/cu.usbserial-EN193448');
 
 
 const output = fivetwelve.default(new fivetwelveNodeDmxDriver(nodeDmx, {
   1: 'universe1',
-  //2: 'universe2'
+  2: 'universe2'
 }));
 
 
