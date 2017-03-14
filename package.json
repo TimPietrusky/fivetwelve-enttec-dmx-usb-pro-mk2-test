@@ -12,8 +12,9 @@
     "url": "git+https://github.com/TimPietrusky/fivetwelve-enttec-dmx-usb-pro-mk2-test.git"
   },
   "dependencies": {
-    "dmx": "0.0.4",
-    "fivetwelve": "^0.9.3"
+    "fivetwelve": "https://github.com/beyondscreen/fivetwelve/tarball/v1.0-dev",
+    "fivetwelve-driver-usbpro": "https://github.com/beyondscreen/fivetwelve-driver-usbpro/tarball/master",
+    "serialport": "^4.0.7"
   },
   "author": "Tim Pietrusky",
   "license": "MIT",
