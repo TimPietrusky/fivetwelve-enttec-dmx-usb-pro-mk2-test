@@ -4,7 +4,7 @@ let Serialport = require('serialport');
 let randomColor = require('random-color');
 
 
-// Serial connection to Enttec DMX USB PRO Mk2
+// Serial connection (USB) to Enttec DMX USB PRO Mk2
 const usbProSerialport = new Serialport('/dev/cu.usbserial-EN193448');
 
 // Initialize the driver using the serial connection
