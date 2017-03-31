@@ -1,0 +1,15 @@
+{
+  "script": "public/asset/js/index.js",
+
+  "verbose": true,
+
+  "ignore": [ "public", "tmp" ],
+
+  "execMap": {
+    "js": "node --harmony"
+  },
+
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
