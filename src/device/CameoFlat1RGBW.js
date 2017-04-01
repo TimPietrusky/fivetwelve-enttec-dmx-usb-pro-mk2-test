@@ -1,7 +1,5 @@
 var fivetwelve = require('fivetwelve/es5');
 
-//import fivetwelve from 'fivetwelve/es5';
-
 export default class CameoFlat1RGBW extends fivetwelve.DmxDevice {
   constructor(options) {
     super(Object.assign({}, options, {

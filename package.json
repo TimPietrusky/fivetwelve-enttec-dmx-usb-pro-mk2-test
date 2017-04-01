@@ -8,9 +8,7 @@
     "start": "node index.js",
     "build": "babel src -d lib/",
     "compile-dev": "export NODE_ENV=development && npm run build && npm run start",
-    "compile": "export NODE_ENV=production && npm run build && npm run start",
-    "babel-node": "babel-node",
-    "dev": "nodemon --exec babel-node src -d lib/"
+    "compile": "export NODE_ENV=production && npm run build && npm run start"
   },
   "repository": {
     "type": "git",
@@ -35,19 +33,6 @@
     "babel-preset-env": "^1.2.2",
     "babel-preset-es2015": "^6.24.0",
     "babel-register": "^6.24.0",
-    "browserify": "^13.1.0",
-    "del": "^2.2.1",
-    "gulp": "latest",
-    "gulp-add-src": "latest",
-    "gulp-babel": "latest",
-    "gulp-nodemon": "latest",
-    "gulp-plumber": "latest",
-    "gulp-rename": "^1.2.2",
-    "gulp-uglify": "latest",
-    "gulp-watch": "latest",
-    "mocha": "^3.2.0",
-    "streamqueue": "latest",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "mocha": "^3.2.0"
   }
 }

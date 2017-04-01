@@ -1,3 +1,5 @@
+'use strict';
+
 let fivetwelve = require('fivetwelve/es5');
 let fivetwelve_driver_usbpro = require('fivetwelve-driver-usbpro/es5');
 import randomColor from 'random-color';
@@ -10,39 +12,36 @@ if (process.env.NODE_ENV == 'development') {
 // Load devices
 import CameoFlat1RGBW from './device/CameoFlat1RGBW';
 import CameoPixBar600PRO from './device/CameoPixBar600PRO';
-
+import CameoWookie200Rgy from './device/CameoWookie200Rgy';
+import AdjStarburst from './device/AdjStarburst';
 
 
 // Serial connection (USB) to Enttec DMX USB PRO Mk2
 const usbProSerialport = new Serialport('/dev/cu.usbserial-EN193448');
-
 // Initialize the driver using the serial connection
 const driver = new fivetwelve_driver_usbpro(usbProSerialport);
-
 // Create the output using the driver and initialize 2 universes
 const output = fivetwelve.default(driver, 2);
 
-
-
-
-let fps = 1;
-
-
 // // Create the DMX devices and set the basic configuration
 const device1 = new CameoFlat1RGBW({ universe : 1, address: 100 });
-const device2 = new CameoFlat1RGBW({ universe : 2, address: 100 });
-
 const pixbar = new CameoPixBar600PRO({ universe: 1, address: 13 });
 
-
+const device2 = new CameoFlat1RGBW({ universe : 2, address: 1 });
+const scanner = new CameoWookie200Rgy({ universe: 2, address: 10 });
+const discoBall = new AdjStarburst({ universe: 2, address: 20 });
 
 // Connect the devices to the DMX output
 device1.setOutput(output);
 device2.setOutput(output);
 pixbar.setOutput(output);
+scanner.setOutput(output);
+discoBall.setOutput(output);
 
 
-let dimmer = 0;
+
+let dimmer = 255;
+let fps = 1;
 
 // Set initial values for the devices
 device1.dimmer = dimmer;
@@ -55,8 +54,27 @@ device2.strobe = 0;
 device2.color = 'rgb(0, 0, 0)';
 device2.white = 0;
 
-pixbar.dimmer = 35;
+pixbar.dimmer = dimmer;
 pixbar.strobe = 0;
+
+scanner.mode = 'dmx';
+scanner.colors = 'red';
+scanner.pattern = 8;
+scanner.zoom = 'manual(50)';
+scanner.xAxisRolling = 'manual(0)';
+scanner.yAxisRolling = 'manual(0)';
+scanner.zAxisRolling = 'manual(0)';
+scanner.xAxisMoving = 'manual(150)';
+scanner.yAxisMoving = 'manual(0)';
+
+discoBall.color = 'rgb(255, 0, 0)';
+discoBall.white = 0;
+discoBall.yellow = 0;
+discoBall.uv = 255;
+discoBall.strobe = 'on';
+discoBall.dimmer = dimmer;
+discoBall.rotate = 'off';
+
 
 let pixbar_active = 1;
 let pixbar_animation_color = [255, 0, 0];
@@ -80,11 +98,9 @@ output.requestDmxFrame(function loop(time) {
   if (pixbar_active >= 12) {
     pixbar_active = 0;
   }
-
   pixbar_active++;
 
 
-  // Recursion
   output.requestDmxFrame(loop);
 });
 
